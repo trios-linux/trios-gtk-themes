@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=TRIOS Grey
+Comment=TRIOS Grey ( based on Greybird theme )
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=TRIOS Grey
+MetacityTheme=Greybird
+IconTheme=Faenza-Wolfe
+CursorTheme=DMZ-White
+ButtonLayout=:minimize,maximize,close
