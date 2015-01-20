@@ -1,0 +1,51 @@
+style "TRIOS"
+{	
+	bg[NORMAL]        = shade (1.02, @bg_color) 
+	bg[PRELIGHT]      = shade (0.9, @base_color)
+	bg[ACTIVE]        = shade (0.9, @bg_color)
+	bg[SELECTED]      = shade (0.5, @selected_bg_color)  
+
+	fg[PRELIGHT]      = @selected_bg_color
+
+  	engine "murrine" 
+	{
+		contrast            = 0.9
+		highlight_shade     = 1.0
+		lightborder_shade   = 1.2
+		gradient_shades     = {1.05,1.0,0.97,0.97}
+		border_shades       = { 1.1, 0.9 }
+		shadow_shades       = {1.0,1.0}
+		reliefstyle         = 0
+		roundness	    = 2
+	}
+}
+widget "whiskermenu-window*" style "TRIOS"
+
+
+# Stick scrollbars to the main theme:
+widget "whiskermenu-window*Scrollbar*" style "scrollbar"
+
+style "darktree"
+{
+	base[NORMAL] = @base_color
+	base[ACTIVE] = @selected_bg_color
+	base[PRELIGHT] = @selected_bg_color
+
+	engine "murrine" {
+		gradient_shades	= { 1.25, 1.1, 0.9, 0.95 }
+
+	}
+}
+widget "whiskermenu-window*TreeView*" style "darktree"
+
+style "search"
+{
+	engine "murrine"
+	{
+		contrast	= 0.0
+		focus_color	= shade (0.7, @selected_bg_color)
+		reliefstyle	= 0
+		border_shades	= {1.5,1.2}
+	}
+}
+widget "whiskermenu-window*GtkEntry*" style "search"
