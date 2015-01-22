@@ -4,8 +4,8 @@ style "theme-panel"
 	ythickness	= 1
 	
 	bg[NORMAL]	= @bg_color
-	bg[ACTIVE]	= shade (0.65, @bg_color_dark)
-	bg[PRELIGHT]	= shade (0.85, @selected_bg_color)
+	bg[ACTIVE]	= shade (0.75, @selected_bg_color)
+	bg[PRELIGHT]	= shade (0.9, @selected_bg_color)
 	bg[SELECTED]	= shade (0.65, @selected_bg_color)
 	
 	fg[NORMAL]	= shade (0.9, @fg_color)
@@ -67,7 +67,8 @@ style "theme-main-menu-text" = "theme-panel-text"
 
 style "workspace-switcher" = "theme-panel"
 {
-	bg[SELECTED]	= shade (0.8, @bg_color)
+	bg[NORMAL]	= shade (1.7, @bg_color)
+	bg[SELECTED]	= shade (0.8, @selected_bg_color)
 }
 
 style "window-buttons" = "theme-panel"
@@ -90,6 +91,7 @@ style "window-buttons" = "theme-panel"
 		reliefstyle	= 0
 		textstyle	= 0
 		text_shade	= 0.0
+		border_colors		= { shade(0.85, @base_color), @selected_bg_color } 
 	}
 }
 
