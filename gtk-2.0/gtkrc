@@ -218,16 +218,16 @@ style "wider"
 
 style "entry" = "wider"
 {
-	bg[SELECTED]		= mix (0.4, @selected_bg_color, @base_color)
+	bg[SELECTED]		= @selected_bg_color
 	base[INSENSITIVE]	= shade (1.06, @bg_color)
 	fg[SELECTED]		= @text_color
 	
 	engine "murrine"
 	{
-		contrast	= 0.4
-		focus_color	= mix (0.1, @bg_color, shade (0.8, @selected_bg_color))
+		#contrast	= 0.4
+		focus_color	= @selected_bg_color
 		reliefstyle	= 0
-		border_shades	= {1.03,0.8}
+		border_shades	= {1.05,1.0}
 	}
 }
 
@@ -250,6 +250,20 @@ style "button" = "wider"
 		shadow_shades       = {1.0,1.0}
 		reliefstyle         = 0
 		roundness	    = 2
+	}
+}
+
+style "toggle-button" = "button"
+{
+
+	bg[ACTIVE] = shade (0.92, @bg_color) 
+
+
+	engine "murrine" {
+		#contrast		= .6
+		gradient_shades		= {1.1,1.0,1.0,0.9}
+		focusstyle		= 1
+		#lightborder_shade	= 1.16
 	}
 }
 
@@ -288,7 +302,9 @@ style "notebook" = "notebook-bg"
 	engine "murrine" {
 		contrast		= .6
 		gradient_shades		= {1.1,1.05,1.05,1.0}
-		#focusstyle		= 2
+		border_shades       = { 1.0, 0.9 }
+		border_colors		= { @selected_bg_color, shade(0.9, @selected_bg_color) } 
+		focusstyle		= 1
 		#lightborder_shade	= 1.16
 	}
 }
@@ -740,6 +756,7 @@ widget_class "*<GtkNotebook>*<GtkLabel>"		style "notebook-bg"
 widget_class "*<GtkButton>"      style "button"
 widget_class "*<GtkNotebook>"    style "notebook"
 widget_class "*<GtkStatusbar>*"  style "statusbar"
+widget_class "*<GtkToggleButton>"      style "toggle-button"
 widget_class "*<GtkToolbar>*<GtkToggleButton>"      style "toolbar-toggle-button"
 
 widget_class "*<GtkNotebook>*<GtkButton>" style "notebook-button"
