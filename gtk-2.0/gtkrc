@@ -270,12 +270,12 @@ style "toggle-button" = "button"
 style "toolbar-toggle-button" = "button"
 {
 
-	bg[ACTIVE] = shade (1.05, @bg_color)
+	bg[ACTIVE] = @bg_color
 
 
 	engine "murrine" {
 		contrast		= .6
-		gradient_shades		= {1.1,1.05,1.05,1.0}
+		gradient_shades		= {1.1,1.06,1.03,1.0}
 		#focusstyle		= 2
 		#lightborder_shade	= 1.16
 	}
