@@ -176,7 +176,7 @@ GtkSwitch.slider {
 }
 
 .button:active,
-*/.primary-toolbar .button:active,
+/*.primary-toolbar .button:active,
 .toolbar .button:active,
 .header-bar .button:active
 .button:checked,
@@ -679,7 +679,7 @@ GtkComboBox.combobox-entry .button:insensitive {
 .entry:active,
 .entry:focus {
     border-width: 2px;
-    border-color: @theme_selected_bg_color, 0.9;
+    border-color: @theme_selected_bg_color;
     background-color: @theme_base_color;
 }
 
@@ -1516,6 +1516,9 @@ GtkPopover .separator {
     color: @menu_fg_color;
 }
 
+.menuitem.button:focus:hover,
+.menuitem.button:active:focus:hover,
+.menuitem.button:checked:focus:hover,
 .menuitem.button:active:hover,
 .menuitem.button:checked:hover,
 .menuitem.button:hover,
@@ -1531,20 +1534,30 @@ GtkPopover .separator {
     color: @theme_selected_fg_color;
 }
 
-GtkModelButton.button,
-GtkModelButton.button:active,
-GtkModelButton.button:checked,
-GtkModelButton.button:insensitive,
-GtkModelButton.button:active:insensitive,
-GtkModelButton.button:checked:insensitive {
-    background-color: transparent;
-    background-image: none;
-    border-color: transparent;
-    border-style: none;
-    box-shadow: none;
-    color: @theme_selected_fg_color;
+GtkModelButton.button {
+	color: @menu_fg_color;
 }
 
+GtkModelButton.button:focus,
+GtkModelButton.button:active:focus,
+GtkModelButton.button:checked:focus,
+GtkModelButton.button:active,
+GtkModelButton.button:checked,
+GtkModelButton.button:insensitive:insensitive,
+GtkModelButton.button:active:insensitive,
+GtkModelButton.button:checked:insensitive,
+GtkModelButton.button {
+	background-color: transparent;
+	background-image: none;
+	border-color: transparent;
+	border-image: none;
+	border-style: none;
+	box-shadow: none;
+}
+
+GtkModelButton.button:focus:hover,
+GtkModelButton.button:active:focus:hover,
+GtkModelButton.button:checked:focus:hover,
 GtkModelButton.button:active:hover,
 GtkModelButton.button:checked:hover,
 GtkModelButton.button:hover,
