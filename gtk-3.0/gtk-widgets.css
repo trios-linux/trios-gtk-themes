@@ -662,10 +662,10 @@ GtkComboBox.combobox-entry .button:insensitive {
     padding: 3px;
     border-width: 1px;
     border-style: solid;
-    border-top-color: shade(@theme_bg_color, 0.6);
-    border-right-color: shade(@theme_bg_color, 0.7);
-    border-left-color: shade(@theme_bg_color, 0.7);
-    border-bottom-color: shade(@theme_bg_color, 0.72);
+    border-top-color: @theme_selected_bg_color;
+    border-right-color: shade(@theme_selected_bg_color, 0.8);
+    border-left-color: @theme_selected_bg_color;
+    border-bottom-color: shade(@theme_selected_bg_color, 0.8);
     border-radius: 3px;
     background-color: @theme_base_color;
     background-image: linear-gradient(to bottom,
@@ -678,7 +678,8 @@ GtkComboBox.combobox-entry .button:insensitive {
 
 .entry:active,
 .entry:focus {
-    border-color: shade(@theme_selected_bg_color, 0.8);
+    border-width: 2px;
+    border-color: @theme_selected_bg_color, 0.9;
     background-color: @theme_base_color;
 }
 
@@ -714,7 +715,7 @@ GtkComboBox.combobox-entry .button:insensitive {
 }
 
 .expander:hover {
-    color: alpha(@theme_fg_color, 0.8);
+    color: @theme_selected_bg_color;
 }
 
 .expander:active {
