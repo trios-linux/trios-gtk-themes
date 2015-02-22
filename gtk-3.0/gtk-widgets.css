@@ -161,7 +161,6 @@ GtkGrid:insensitive {
 .primary-toolbar .raised.button,
 .toolbar .button,
 .header-bar .button,
-.button:checked,
 .primary-toolbar .raised .button:checked,
 .primary-toolbar .raised.button:checked,
 .toolbar .button:checked,
@@ -177,12 +176,12 @@ GtkSwitch.slider {
 }
 
 .button:active,
-.primary-toolbar .button:active,
+*/.primary-toolbar .button:active,
 .toolbar .button:active,
 .header-bar .button:active
 .button:checked,
 .primary-toolbar .button:checked,
-.toolbar .button:checked,
+.toolbar .button:checked,*/
 .header-bar .button:checked {
     box-shadow: inset 1px 1px alpha(@dark_shadow, 0.06),
                 inset -1px -1px alpha(@dark_shadow, 0.06);
@@ -203,6 +202,7 @@ GtkSwitch.slider:insensitive {
 }
 
 /* disable box shadow */
+.button:checked,
 .primary-toolbar GtkComboBox,
 .primary-toolbar .button *,
 .primary-toolbar .button,
@@ -238,14 +238,14 @@ GtkAssistant .sidebar {
     padding: 2px 4px;
     border-width: 1px;
     border-style: solid;
-    border-top-color: shade(@theme_bg_color, 0.8);
-    border-right-color: shade(@theme_bg_color, 0.72);
-    border-left-color: shade(@theme_bg_color, 0.72);
-    border-bottom-color: shade(@theme_bg_color, 0.7);
+    border-top-color: @theme_selected_bg_color;
+    border-right-color: shade(@theme_selected_bg_color, 0.8);
+    border-left-color: @theme_selected_bg_color;
+    border-bottom-color: shade(@theme_selected_bg_color, 0.8);
     border-radius: 3px;
     background-image: linear-gradient(to bottom,
-                                      shade(shade(@theme_bg_color, 1.02), 1.05),
-                                      shade(shade(@theme_bg_color, 1.02), 0.97)
+                                      shade(@theme_bg_color, 1.12),
+                                      shade(@theme_bg_color, 0.92)
                                       );
 
     color: @theme_fg_color;
@@ -253,13 +253,13 @@ GtkAssistant .sidebar {
 
 .button.flat:hover,
 .button:hover {
-    border-top-color: shade(@theme_bg_color, 0.85);
-    border-right-color: shade(@theme_bg_color, 0.78);
-    border-left-color: shade(@theme_bg_color, 0.78);
-    border-bottom-color: shade(@theme_bg_color, 0.7);
+    border-top-color: @theme_selected_bg_color;
+    border-right-color: shade(@theme_selected_bg_color, 0.8);
+    border-left-color: @theme_selected_bg_color;
+    border-bottom-color: shade(@theme_selected_bg_color, 0.8);
     background-image: linear-gradient(to bottom,
-                                      shade(@theme_bg_color, 1.15),
-                                      shade(@theme_bg_color, 1.07)
+                                      shade(@theme_base_color, 1.12),
+                                      shade(@theme_base_color, 0.88)
                                       );
 }
 
@@ -267,11 +267,15 @@ GtkAssistant .sidebar {
 .button.flat:active,
 .button.flat:checked,
 .button:checked {
-    border-color: shade(@theme_bg_color, 0.6);
+    border-top-color: shade(@theme_selected_bg_color, 1.0);
+    border-right-color: shade(@theme_selected_bg_color, 0.85);
+    border-left-color: shade(@theme_selected_bg_color, 1.10);
+    border-bottom-color: shade(@theme_selected_bg_color, 0.85);
     background-image: linear-gradient(to bottom,
-                                      shade(shade(@theme_bg_color, 0.85), 1.05),
-                                      shade(shade(@theme_bg_color, 0.85), 0.97)
+                                      shade(@theme_selected_bg_color, 1.10),
+                                      shade(@theme_selected_bg_color, 0.85)
                                       );
+    color: @theme_base_color;
 }
 
 /*.button:toggle {
@@ -286,32 +290,53 @@ GtkAssistant .sidebar {
 .button.flat:active:hover,
 .button.flat:checked:hover,
 .button:checked:hover {
-    border-top-color: shade(@theme_bg_color, 0.85);
-    border-right-color: shade(@theme_bg_color, 0.78);
-    border-left-color: shade(@theme_bg_color, 0.78);
-    border-bottom-color: shade(@theme_bg_color, 0.7);
+    border-top-color: @theme_selected_bg_color;
+    border-right-color: shade(@theme_selected_bg_color, 0.8);
+    border-left-color: @theme_selected_bg_color;
+    border-bottom-color: shade(@theme_selected_bg_color, 0.8);
     background-image: linear-gradient(to bottom,
-                                      shade(@theme_bg_color, 1.15),
-                                      shade(@theme_bg_color, 1.07)
+                                      shade(@theme_selected_bg_color, 1.20),
+                                      shade(@theme_selected_bg_color, 0.95)
                                       );
+	color: @theme_fg_color;
 }
 
 .button:focus,
-.button:hover:focus,
 .button.flat:focus,
-.button.flat:hover:focus,
 .button:active:focus,
-.button:active:hover:focus,
-.button:checked:focus,
-.button:checked:hover:focus {
-    border-color: shade(@theme_selected_bg_color, 0.8);
+.button:checked:focus {
+    border-width: 2px;
+    border-top-color: @theme_selected_bg_color;
+    border-right-color: shade(@theme_selected_bg_color, 0.8);
+    border-left-color: @theme_selected_bg_color;
+    border-bottom-color: shade(@theme_selected_bg_color, 0.8);
 }
 
-.button:insensitive {
-    border-color: shade(@theme_bg_color, 0.8);
+.button:hover:focus,
+.button.flat:hover:focus,
+.button:active:hover:focus,
+.button:checked:hover:focus {
+    border-width: 2px;
+    border-top-color: @theme_selected_bg_color;
+    border-right-color: shade(@theme_selected_bg_color, 0.8);
+    border-left-color: @theme_selected_bg_color;
+    border-bottom-color: shade(@theme_selected_bg_color, 0.8);
     background-image: linear-gradient(to bottom,
-                                      shade(shade(@theme_bg_color, 0.95), 1.05),
-                                      shade(shade(@theme_bg_color, 0.95), 0.97)
+                                      shade(@theme_selected_bg_color, 1.10),
+                                      shade(@theme_selected_bg_color, 0.85)
+                                      );
+	color: @theme_fg_color;
+}
+
+.button.flat:insensitive,
+.button:insensitive {
+    border-top-color: @theme_selected_bg_color;
+    border-right-color: shade(@theme_selected_bg_color, 0.8);
+    border-left-color: @theme_selected_bg_color;
+    border-bottom-color: shade(@theme_selected_bg_color, 0.8);
+    background-image: linear-gradient(to bottom,
+                                      shade(@theme_bg_color, 1.05),
+                                      shade(@theme_bg_color, 0.85)
                                       );
 }
 
@@ -319,45 +344,57 @@ GtkAssistant .sidebar {
 .button.flat:checked:insensitive,
 .button:active:insensitive,
 .button:checked:insensitive {
-    border-color: shade(@theme_bg_color, 0.8);
+    border-top-color: @theme_selected_bg_color;
+    border-right-color: shade(@theme_selected_bg_color, 0.8);
+    border-left-color: @theme_selected_bg_color;
+    border-bottom-color: shade(@theme_selected_bg_color, 0.8);
     background-image: linear-gradient(to bottom,
-                                      shade(shade(@theme_bg_color, 0.95), 1.05),
-                                      shade(shade(@theme_bg_color, 0.95), 0.97)
+                                      shade(@theme_bg_color, 1.05),
+                                      shade(@theme_bg_color, 0.85)
                                       );
 }
 
 /* default button */
 .button.default {
-    border-color: shade(@theme_selected_bg_color, 0.8);
+    border-width: 2px;
+    border-top-color: @theme_selected_bg_color;
+    border-right-color: shade(@theme_selected_bg_color, 0.8);
+    border-left-color: @theme_selected_bg_color;
+    border-bottom-color: shade(@theme_selected_bg_color, 0.8);
     background-image: linear-gradient(to bottom,
-                                      shade(alpha(@theme_selected_bg_color, 0.7), 1.05),
-                                      shade(alpha(@theme_selected_bg_color, 0.7), 0.97)
+                                      shade(@theme_bg_color, 1.12),
+                                      shade(@theme_bg_color, 0.92)
                                       );
 }
 
 .button.default:hover {
-    border-color: shade(@theme_selected_bg_color, 0.8);
+
     background-image: linear-gradient(to bottom,
-                                      shade(mix(@theme_base_color, @theme_selected_bg_color, 0.7), 1.05),
-                                      shade(mix(@theme_base_color, @theme_selected_bg_color, 0.7), 0.97)
+                                      shade(@theme_base_color, 1.12),
+                                      shade(@theme_base_color, 0.88)
                                       );
 }
 
 .button.default:active,
 .button.default:checked {
-    border-color: shade(@theme_selected_bg_color, 0.7);
+    border-width: 2px;
+    border-top-color: @theme_selected_bg_color;
+    border-right-color: shade(@theme_selected_bg_color, 0.8);
+    border-left-color: @theme_selected_bg_color;
+    border-bottom-color: shade(@theme_selected_bg_color, 0.8);
     background-image: linear-gradient(to bottom,
-                                      shade(alpha(@theme_selected_bg_color, 0.7), 1.05),
-                                      shade(alpha(@theme_selected_bg_color, 0.7), 0.97)
+                                      shade(@theme_base_color, 1.12),
+                                      shade(@theme_base_color, 0.88)
                                       );
+	color: @theme_selected_bg_color;
 }
 
 .button.default:active:hover,
 .button.default:checked:hover {
     border-color: shade(@theme_selected_bg_color, 0.8);
     background-image: linear-gradient(to bottom,
-                                      shade(mix(@theme_base_color, @theme_selected_bg_color, 0.7), 1.05),
-                                      shade(mix(@theme_base_color, @theme_selected_bg_color, 0.7), 0.97)
+                                      shade(@theme_base_color, 1.12),
+                                      shade(@theme_base_color, 0.88)
                                       );
 }
 
