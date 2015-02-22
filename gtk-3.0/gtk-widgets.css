@@ -50,6 +50,7 @@
     -WnckTasklist-fade-overlay-rect: 0;
 	-gtk-icon-style: regular;
 
+
     outline-color: alpha(@theme_fg_color, 0.3);
     outline-style: dashed;
     outline-offset: 2px;
@@ -1732,7 +1733,7 @@ GtkModelButton.button:selected {
 GtkProgressBar {
     padding: 0;
     border-width: 1px;
-    border-radius: 3px;
+    border-radius: 2px;
 }
 
 .progressbar,
@@ -1742,18 +1743,19 @@ GtkProgressBar {
 .progressbar row:selected:focus {
     border-width: 1px;
     border-style: solid;
-    border-radius: 3px;
-    border-color: shade(@theme_selected_bg_color, 0.3);
+    border-radius: 2px;
+    border-color: transparent;
     background-image: linear-gradient(to bottom,
-                                      shade(@theme_selected_bg_color, 1.15),
-                                      shade(@theme_selected_bg_color, 0.95)
+                                      shade(@theme_selected_bg_color, 1.1),
+                                      shade(@theme_selected_bg_color, 0.9)
                                       );
+	color: @theme_selected_fg_color;
 }
 
 .progressbar.vertical {
     background-image: linear-gradient(to right,
-                                      shade(@theme_selected_bg_color, 1.15),
-                                      shade(@theme_selected_bg_color, 0.95)
+                                      shade(@theme_selected_bg_color, 1.1),
+                                      shade(@theme_selected_bg_color, 0.9)
                                       );
 }
 
@@ -1797,10 +1799,10 @@ GtkLevelBar.vertical {
 .level-bar.fill-block {
     border-width: 1px;
     border-style: solid;
-    border-color: shade(@theme_selected_bg_color, 0.7);
+    border-color: transparent;
     background-image: linear-gradient(to bottom,
-                                      shade(@theme_selected_bg_color, 1.15),
-                                      shade(@theme_selected_bg_color, 0.95)
+                                      shade(@theme_selected_bg_color, 1.1),
+                                      shade(@theme_selected_bg_color, 0.9)
                                       );
 }
 
@@ -1865,7 +1867,7 @@ GtkLevelBar.vertical {
 .scale {
     padding: 0;
     border-width: 1px;
-    border-radius: 3px;
+    border-radius: 2px;
 
     -GtkRange-slider-width: 13;
     -GtkRange-trough-border: 1;
@@ -1875,8 +1877,8 @@ GtkLevelBar.vertical {
 .scale.slider {
     border-radius: 3px;
     background-image: linear-gradient(to bottom,
-                                      shade(shade(@theme_bg_color, 1.30), 1.2),
-                                      shade(shade(@theme_bg_color, 1.30), 0.97)
+                                      shade(@theme_bg_color, 1.30),
+                                      shade(@theme_bg_color, 1.0)
                                       );
 
     /* we will draw the border using box shadow for now */
@@ -1888,20 +1890,16 @@ GtkLevelBar.vertical {
 
 .scale.slider:hover {
     background-image: linear-gradient(to bottom,
-                                      shade(mix(@theme_bg_color, shade(@theme_selected_bg_color, 0.9), 0.4), 1.2),
-                                      shade(mix(@theme_bg_color, shade(@theme_selected_bg_color, 0.9), 0.4),0.97)
+                                      shade(@theme_bg_color, 1.50),
+                                      shade(@theme_bg_color, 1.3)
                                       );
 
-    box-shadow: inset 1px 0 shade(@theme_bg_color, 0.6),
-                inset 0 1px shade(@theme_bg_color, 0.6),
-                inset -1px 0 shade(@theme_bg_color, 0.5),
-                inset 0 -1px shade(@theme_bg_color, 0.5);
 }
 
 .scale.slider:insensitive {
     background-image: linear-gradient(to bottom,
                                       shade(@theme_bg_color, 0.99),
-                                      shade(@theme_bg_color, 0.95)
+                                      shade(@theme_bg_color, 0.90)
                                       );
 
     box-shadow: inset 1px 0 shade(@theme_bg_color, 0.8),
@@ -1912,22 +1910,22 @@ GtkLevelBar.vertical {
 
 .scale.slider.vertical {
     background-image: linear-gradient(to right,
-                                      shade(shade(@theme_bg_color, 1.30), 1.2),
-                                      shade(shade(@theme_bg_color, 1.30), 0.97)
+                                      shade(@theme_bg_color, 1.30),
+                                      shade(@theme_bg_color, 1.0)
                                       );
 }
 
 .scale.slider.vertical:hover {
     background-image: linear-gradient(to right,
-                                      shade(mix(@theme_bg_color, shade(@theme_selected_bg_color, 0.9), 0.4), 1.2),
-                                      shade(mix(@theme_bg_color, shade(@theme_selected_bg_color, 0.9), 0.4),0.97)
+                                      shade(@theme_bg_color, 1.50),
+                                      shade(@theme_bg_color, 1.3)
                                       );
 }
 
 .scale.slider.vertical:insensitive {
     background-image: linear-gradient(to right,
                                       shade(@theme_bg_color, 0.99),
-                                      shade(@theme_bg_color, 0.95)
+                                      shade(@theme_bg_color, 0.9)
                                       );
 }
 
@@ -1966,15 +1964,15 @@ GtkLevelBar.vertical {
 
 .menubar .menuitem .scale.highlight.left,
 .scale.highlight.left {
-    border-color: shade(@theme_selected_bg_color, 0.7);
+    border-color: shade(@theme_bg_color, 0.7);
     background-image: linear-gradient(to bottom,
-                                      shade(shade(@theme_selected_bg_color, 0.9), 1.1),
-                                      shade(shade(@theme_selected_bg_color, 0.9), 0.9)
+                                      shade(@theme_selected_bg_color, 1.1),
+                                      shade(@theme_selected_bg_color, 0.9)
                                       );
 }
 
 .menubar .menuitem .scale.highlight.left:hover {
-    border-color: shade(@theme_selected_bg_color, 0.5);
+    border-color: shade(@theme_bg_color, 0.7);
     background-image: linear-gradient(to bottom,
                                       shade(shade(@theme_selected_bg_color, 0.9), 0.9),
                                       shade(shade(@theme_selected_bg_color, 0.9), 0.7)
@@ -1982,10 +1980,10 @@ GtkLevelBar.vertical {
 }
 
 .scale.highlight.bottom {
-    border-color: shade(@theme_selected_bg_color, 0.7);
+    border-color: shade(@theme_bg_color, 0.7);
     background-image: linear-gradient(to right,
-                                      shade(shade(@theme_selected_bg_color, 0.9), 1.1),
-                                      shade(shade(@theme_selected_bg_color, 0.9), 0.9)
+                                      shade(@theme_selected_bg_color, 1.1),
+                                      shade(@theme_selected_bg_color, 0.9)
                                       );
 }
 
