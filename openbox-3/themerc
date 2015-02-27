@@ -5,8 +5,8 @@
 # Window geometry
 padding.width: 3
 border.width: 1
-window.client.padding.width: 0
-window.client.padding.height: 0
+window.client.padding.width: 3
+window.client.padding.height: 3
 window.handle.width: 0
 
 #Menu geometry
@@ -14,11 +14,11 @@ menu.border.width: 1
 menu.overlap: 0
 
 # Border colors
-window.active.border.color: #A6A6A6
-window.inactive.border.color: #A6A6A6
-menu.border.color: #A6A6A6
-window.active.client.color: #3c3c3c
-window.inactive.client.color: #3c3c3c
+window.active.border.color: #868786
+window.inactive.border.color: #868786
+menu.border.color: #868786
+window.*.client.color: #D9D9D9
+
 
 window.active.title.separator.color:  #D9D9D9
 window.inactive.title.separator.color: #D9D9D9
@@ -40,22 +40,25 @@ window.active.title.bg.colorTo: #D9D9D9
 window.active.label.bg: Parentrelative
 window.active.label.text.color: #404040
 
-window.*.handle.bg: raised solid
-window.*.handle.bg.color: #3c3c3c
+window.*.handle.bg: solid flat
+window.*.handle.bg.color: #D9D9D9
 
 window.*.grip.bg: raised solid
-window.*.grip.bg.color: #3c3c3c
+window.*.grip.bg.color: #D9D9D9
 
 window.*.button.*.bg: Parentrelative
-window.active.button.unpressed.image.color: #404040
+window.active.button.unpressed.image.color: #6e6e6e
 
-window.active.button.pressed.image.color: #3465A4
+window.active.button.pressed.image.color: #1a1a1a
 
-window.*.button.disabled.image.color: #555555
+window.*.button.disabled.image.color: #b2b2b2
 
-window.*.button.toggled.image.color: #808080
+window.*.button.toggled.image.color: #6e6e6e
 
-window.*.button.hover.image.color: #808080
+window.*.button.hover.image.color: #1a1a1a
+
+window.*.button.toggled.hover.image.color: #1a1a1a
+
 
 # Inactive windows
 window.inactive.title.bg: flat Gradient Vertical
@@ -63,13 +66,17 @@ window.inactive.title.bg.color: #F2F2F2
 window.inactive.title.bg.colorTo: #D9D9D9
 
 window.inactive.label.bg: Parentrelative
-window.inactive.label.text.color: #8C8C8C
+window.inactive.label.text.color: #666666
 
 
-window.inactive.button.unpressed.image.color: #8C8C8C
+window.inactive.button.unpressed.image.color: #999999
 
 window.inactive.button.pressed.image.color: #8C8C8C
 
+
+window.inactive.button.toggled.image.color: #999999
+
+window.inactive.button.toggled.hover.image.color: #1a1a1a
 
 
 
