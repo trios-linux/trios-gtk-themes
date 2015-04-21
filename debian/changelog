@@ -1,0 +1,79 @@
+trios-dark (0.6-1) testing; urgency=medium
+
+  * Check/Radio buttons hover foreground made nicer.
+  * Do not use symbolic icons in gtk3 file chooser dialog.
+  * Catfish main toolbar GtkCombo box fixed.
+  * Calendar style now matches the theme better.
+  * Buttons:
+    - Small improvement on borders,
+    - Some fixes imported from Greybird, completes gtk3.14 support.
+  * Popovers improvements.
+
+ -- Filip Danilovic <filip@openmailbox.org>  Mon, 16 Mar  2015 22:19:50 +0100
+
+trios-dark (0.5.2-2) testing; urgency=medium
+
+  * Fix permissions, keeps lintian quet.
+
+ -- Filip Danilovic <filip@openmailbox.org>  Wed, 14 Jan  2015 21:35:50 +0100
+
+trios-dark (0.5.2-1) testing; urgency=medium
+
+  * Increase window border thickness. They are now easier to grab for resizing.
+  * Improvements on buttons (gtk3).
+
+ -- Filip Danilovic <filip@openmailbox.org>  Wed, 14 Jan  2015 21:31:50 +0100
+
+trios-dark (0.5.1-1) testing; urgency=medium
+
+  * Added support for gtk 3.14
+  * xfce4-notify - Make sure that proper colors are used
+  * Include theming for Pidgin, no need for a separate gtkrc-2.0 file anymore
+  * Some other minor fixes and improvements
+
+ -- Filip Danilovic <filip@openmailbox.org>  Mon, 05 Jan  2015 02:44:50 +0100
+
+trios-dark (0.4.1-1) testing; urgency=medium
+
+  * FIXED AND UPDATED:
+  * gtk3 - Column header hover color
+  * gtk3 - Check and radio buttons assets
+  * gtk3 - Linked buttons fix
+  * gtk2 - Match disabled combobox with gtk3
+  * gtk2 - Lighten up text color in Orage Calendar
+  * gtk2 - Match selected togglebutton with gtk3 counterpart
+  * gtk2 - Whisker menu improvements
+  * gtk2 - Thunar infobar fix moved to thunar.rc
+  * gtk2 - Lightened up the enabled unchecked check and radio buttons
+  * gtk2 - Xfce Terminal tabs now match the rest of the theme
+  * xfce4-notify -  Reseting back to default theme fixed
+  * And more minor fixes and improvements
+
+ -- Filip Danilovic <filip@opmbx.org>  Sun, 24 Aug  2014 22:50:50 +0200
+
+trios-dark (0.2.1-1) testing; urgency=medium
+
+  * FIXED AND UPDATED:
+  * Scale slider and button
+  * GIMP Toolbar buttons
+  * LibreOffice Toolbar buttons
+  * Buttons
+  * Lightdm-greeter
+  * Xfce panel applets background color
+  * Xfce panel text color
+  * Xfce notifications
+  * Mess that latest gtk3 update made
+
+ -- Filip Danilovic <filip@opmbx.org>  Wed, 18 Jun  2014 22:16:50 +0200
+
+trios-dark (0.2-1) testing; urgency=medium
+
+  * Second release, many various fixes, mainly new look on buttons.
+
+ -- Filip Danilovic <filip@opmbx.org>  Fri, 12 May 2014 23:16:50 +0200
+
+trios-dark (0.1-1) testing; urgency=medium
+
+  * Initial release.
+
+ -- Filip Danilovic <filip@opmbx.org>  Fri, 09 May 2014 01:08:50 +0200
