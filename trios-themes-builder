@@ -15,8 +15,8 @@ DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 if [[ $DIR == *"/usr/bin"* ]]
 then
     if [ "$EUID" -ne 0 ]
-      then echo "Please run as root"
-      exit
+        then echo "Please run as root"
+        exit
     else
         ROOT_BUILD=true
     fi
@@ -87,7 +87,6 @@ COLOR=#262626
 
     cd $DIR
     cp -fpR ./$GREY $GREY-Grey && cd $GREY-Grey
-    cp -fpR ./$GREY $GREY-Grey && cd $GREY-Grey
     sed -i s/selected_bg_color:#CF4242/"selected_bg_color:$COLOR"/g ./gtk-2.0/gtkrc
     sed -i s/selected_bg_color:#CF4242/"selected_bg_color:$COLOR"/g ./gtk-3.0/settings.ini
     sed -i s/"#CF4242;"/"$COLOR;"/g ./gtk-3.0/gtk.css
@@ -108,23 +107,23 @@ do
 			cd ..
 			rm -fr TRIOS-Grey-*
 			;;
-	    gblue)
-	        grey-blue
-	        ;;
-	    ggreen)
-	        grey-green
-	        ;;
-	    ggrey)
-	        grey-grey
-	        ;;
-	    all)
-	        grey-green
-	        grey-blue
-	        grey-grey
-	        ;;
-	    *)
-	        echo "Argument needed"
-	        ;;
+		gblue)
+			grey-blue
+			;;
+		ggreen)
+			grey-green
+			;;
+		ggrey)
+			grey-grey
+			;;
+		all)
+			grey-green
+			grey-blue
+			grey-grey
+			;;
+		*)
+			echo "Argument needed"
+			;;
 	esac
 done
 
