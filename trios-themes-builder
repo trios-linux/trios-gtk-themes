@@ -1,0 +1,131 @@
+#!/bin/bash
+#
+# Script for (re)building variants of the main TRIOS Gtk theme.
+#
+# 2015 Filip Danilovic <filip@openmailbox.org>
+
+# Check if we are being run from /usr/bin and as root.
+# We need to know whether we're updating preinstalled themes in 
+# /usr/share/themes, or freshly downloaded or cloned ones, for which we need
+# to reside in the same ( non-root ) directory.
+#
+
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+if [[ $DIR == *"/usr/bin"* ]]
+then
+    if [ "$EUID" -ne 0 ]
+      then echo "Please run as root"
+      exit
+    else
+        ROOT_BUILD=true
+    fi
+else
+    ROOT_BUILD=false
+fi
+
+
+# TODO: Add usage info. Build Openbox, xfce4-notify themes as well.
+
+
+# Dirs and names:
+
+DARK=TRIOS-Dark
+GREY=TRIOS-Grey
+LIGHT=TRIOS-Light
+
+if [ "$ROOT_BUILD" == "true" ]; then
+    DIR=/usr/share/themes
+else
+    DIR=`/bin/pwd`
+fi
+
+
+# Lines we're replacing:
+#
+# selected_bg_color:#CF4242 | gtk-2.0/gtkrc & gtk-3.0/settings.ini
+#
+# #CF4242; | gtk-3.0/gtk.css
+#
+
+
+# Functions for building a specific variant:
+# TRIOS-Grey-Blue:
+
+grey-blue() {
+
+COLOR=#578ED4
+
+    cd $DIR
+    cp -fpR ./$GREY $GREY-Blue && cd $GREY-Blue
+    sed -i s/selected_bg_color:#CF4242/"selected_bg_color:$COLOR"/g ./gtk-2.0/gtkrc
+    sed -i s/selected_bg_color:#CF4242/"selected_bg_color:$COLOR"/g ./gtk-3.0/settings.ini
+    sed -i s/"#CF4242;"/"$COLOR;"/g ./gtk-3.0/gtk.css
+    cd ..
+}
+
+
+# TRIOS-Grey-Green:
+
+grey-green() {
+
+COLOR=#32B35D
+
+    cd $DIR
+    cp -fpR ./$GREY $GREY-Green && cd $GREY-Green
+    sed -i s/selected_bg_color:#CF4242/"selected_bg_color:$COLOR"/g ./gtk-2.0/gtkrc
+    sed -i s/selected_bg_color:#CF4242/"selected_bg_color:$COLOR"/g ./gtk-3.0/settings.ini
+    sed -i s/"#CF4242;"/"$COLOR;"/g ./gtk-3.0/gtk.css
+    cd ..
+}
+
+
+# TRIOS-Grey-Grey:
+grey-grey () {
+
+COLOR=#262626
+
+    cd $DIR
+    cp -fpR ./$GREY $GREY-Grey && cd $GREY-Grey
+    cp -fpR ./$GREY $GREY-Grey && cd $GREY-Grey
+    sed -i s/selected_bg_color:#CF4242/"selected_bg_color:$COLOR"/g ./gtk-2.0/gtkrc
+    sed -i s/selected_bg_color:#CF4242/"selected_bg_color:$COLOR"/g ./gtk-3.0/settings.ini
+    sed -i s/"#CF4242;"/"$COLOR;"/g ./gtk-3.0/gtk.css
+    cd ..
+}
+
+
+#############
+# Main stuff:
+#############
+
+for arg in "$@"
+do
+	case "$arg" in
+		c)
+			cd ./$GREY
+			rm -fr ./.git*
+			cd ..
+			rm -fr TRIOS-Grey-*
+			;;
+	    gblue)
+	        grey-blue
+	        ;;
+	    ggreen)
+	        grey-green
+	        ;;
+	    ggrey)
+	        grey-grey
+	        ;;
+	    all)
+	        grey-green
+	        grey-blue
+	        grey-grey
+	        ;;
+	    *)
+	        echo "Argument needed"
+	        ;;
+	esac
+done
+
+
