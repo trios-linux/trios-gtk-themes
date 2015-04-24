@@ -524,7 +524,7 @@ GtkHTML {
 * calendar *
 ************/
 GtkCalendar {
-    padding: 1;
+    padding: 1px;
 }
 
 GtkCalendar:inconsistent {
@@ -535,19 +535,29 @@ GtkCalendar.view {
     border-width: 1px;
     border-style: solid;
     border-color: shade(@theme_bg_color, 0.8);
-    border-radius: 0;
+    border-radius: 3px;
     background-color: @theme_base_color;
     background-image: none;
 }
 
-GtkCalendar.header {
+GtkCalendar.view.button:active,
+GtkCalendar.view.button:checked {
     border-width: 1px;
+    border-style: solid;
+    border-color: shade(@theme_bg_color, 0.8);
+    border-radius: 3px;
+    background-color: @theme_bg_color;
+    background-image: none;
+}
+
+GtkCalendar.header {
+    border-width: 0px;
     border-style: solid;
     border-color: shade(@theme_bg_color, 0.8);
     border-radius: 0;
     background-image: linear-gradient(to bottom,
-                                      shade(shade(@theme_bg_color, 1.02), 1.05),
-                                      shade(shade(@theme_bg_color, 1.02), 0.97)
+                                      shade(@theme_bg_color, 0.7),
+                                      shade(@theme_base_color, 1.0)
                                       );
 }
 
@@ -559,11 +569,19 @@ GtkCalendar.button:insensitive {
     background-image: none;
 }
 
+GtkCalendar.button:active,
+GtkCalendar.button:checked {
+    border-width: 0;
+    background-color: @theme_base_color;
+    background-image: none;
+}
+
 .highlight,
 GtkCalendar.highlight {
     border-width: 0;
-    background-color: @theme_bg_color;
-    color: shade(@theme_selected_bg_color, 1.0);
+    border-radius: 3px;
+    background-color: shade(@theme_bg_color, 1.0);
+    color: @theme_selected_bg_color;
 }
 
 /******************
