@@ -118,7 +118,7 @@ COLOR=#578ED4
     cp -fpR ./$DARK $DARK-Blue && cd $DARK-Blue
     sed -i s/selected_bg_color:#C12D2D/"selected_bg_color:$COLOR"/g ./gtk-2.0/gtkrc
     sed -i s/selected_bg_color:#C12D2D/"selected_bg_color:$COLOR"/g ./gtk-3.0/settings.ini
-    sed -i s/"#CF4242;"/"$COLOR;"/g ./gtk-3.0/gtk.css
+    sed -i s/"#C12D2D;"/"$COLOR;"/g ./gtk-3.0/gtk.css
     cd ..
 	echo DONE!
 }
@@ -135,7 +135,7 @@ COLOR=#32B35D
     cp -fpR ./$DARK $DARK-Green && cd $DARK-Green
     sed -i s/selected_bg_color:#C12D2D/"selected_bg_color:$COLOR"/g ./gtk-2.0/gtkrc
     sed -i s/selected_bg_color:#C12D2D/"selected_bg_color:$COLOR"/g ./gtk-3.0/settings.ini
-    sed -i s/"#CF4242;"/"$COLOR;"/g ./gtk-3.0/gtk.css
+    sed -i s/"#C12D2D;"/"$COLOR;"/g ./gtk-3.0/gtk.css
     cd ..
 	echo DONE!
 }
@@ -152,7 +152,7 @@ COLOR=#808080
     cp -fpR ./$DARK $DARK-Grey && cd $DARK-Grey
     sed -i s/selected_bg_color:#C12D2D/"selected_bg_color:$COLOR"/g ./gtk-2.0/gtkrc
     sed -i s/selected_bg_color:#C12D2D/"selected_bg_color:$COLOR"/g ./gtk-3.0/settings.ini
-    sed -i s/"#CF4242;"/"$COLOR;"/g ./gtk-3.0/gtk.css
+    sed -i s/"#C12D2D;"/"$COLOR;"/g ./gtk-3.0/gtk.css
     cd ..
 	echo DONE!
 }
