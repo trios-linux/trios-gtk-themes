@@ -227,9 +227,9 @@ style "entry" = "wider"
 	engine "murrine"
 	{
 		contrast	= 0.4
-		focus_color	= mix (2.1, @bg_color, shade (0.9, @selected_bg_color))
+		focus_color	= shade (0.7, @selected_bg_color)
 		reliefstyle	= 0
-		border_shades	= {1.03,0.8}
+		border_shades	= {1.5,1.2}
 	}
 }
 
